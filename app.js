@@ -54,7 +54,8 @@ app.get("/", async (req, res) => {
 // all todos
 // index
 app.get("/todos", async (req, res) => {
-  res.render("todos/index");
+  const todos = await Todo.find();
+  res.render("todos/index", { todos });
 });
 
 // ==============================================
