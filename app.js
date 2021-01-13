@@ -49,7 +49,7 @@ app.get("/", async (req, res) => {
 // all todos
 // index
 app.get("/todos", async (req, res) => {
-  res.render("index");
+  res.render("todos/index");
 });
 
 // ==============================================
