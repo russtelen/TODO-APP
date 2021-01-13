@@ -5,6 +5,9 @@
   <ul>
     <% todos.map(t => { %>
     <li><%= t.title %></li>
+    <form action="/todos/<%= t._id %>?_method=DELETE" method="POST">
+      <button>Done</button>
+    </form>
     <% }) %>
   </ul>
 

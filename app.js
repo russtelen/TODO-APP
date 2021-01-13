@@ -68,6 +68,14 @@ app.post("/todos", async (req, res) => {
   res.redirect("/todos");
 });
 
+// delete
+// todo
+app.delete("/todos/:id", async (req, res) => {
+  const { id } = req.params;
+  await Todo.deleteOne({ _id: id });
+  res.redirect("/todos");
+});
+
 // ==============================================
 // LISTEN
 app.listen(5000, () => {
