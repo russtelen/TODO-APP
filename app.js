@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 const mongoose = require("mongoose");
 const Todo = require("./models/todo.js");
 // ==============================================
@@ -12,6 +13,9 @@ const app = express();
 
 // Serving static assets
 app.use(express.static(path.join(__dirname, "/public")));
+
+// EJS Mate -> for layouts
+app.engine("ejs", ejsMate);
 
 // Parsing Middlewares
 app.use(bodyParser.urlencoded({ extended: true })); // application/x-www-form-urlencoded
