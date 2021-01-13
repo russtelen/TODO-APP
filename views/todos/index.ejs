@@ -1,18 +1,44 @@
 <% layout('layouts/boilerplate.ejs') %>
 <body>
-  <h1>Todos</h1>
+  <h1 class="text-center display-1">Todo App</h1>
 
-  <ul>
-    <% todos.map(t => { %>
-    <li><%= t.title %></li>
-    <form action="/todos/<%= t._id %>?_method=DELETE" method="POST">
-      <button>Done</button>
-    </form>
-    <% }) %>
-  </ul>
+  <div class="d-flex justify-content-center">
+    <div class="card mt-5" style="width: 25rem">
+      <div class="card-header">Todos</div>
+      <ul class="list-group list-group-flush">
+        <% todos.map(t => { %>
+        <li class="list-group-item">
+          <div class="d-flex">
+            <div class="col-10"><%= t.title %></div>
 
-  <form action="/todos" method="POST">
-    <input type="text" placeholder="Enter Todo" name="title" required />
-    <button type="submit">Add Todo</button>
-  </form>
+            <form
+              class="col-2"
+              action="/todos/<%= t._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button class="btn btn-sm btn-danger">Done</button>
+            </form>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+
+      <form action="/todos" method="POST">
+        <div class="input-group mb-3">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Add Todo"
+            name="title"
+            required
+          />
+          <span class="input-group-text"
+            ><button class="btn btn-sm btn-success" type="submit">
+              +
+            </button></span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
