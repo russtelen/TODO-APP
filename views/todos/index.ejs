@@ -3,16 +3,16 @@
   <h1 class="text-center display-1">Todo App</h1>
 
   <div class="d-flex justify-content-center">
-    <div class="card mt-5" style="width: 25rem">
+    <div class="card mt-5" style="width: 35rem">
       <div class="card-header">Todos</div>
       <ul class="list-group list-group-flush">
         <% todos.map(t => { %>
         <li class="list-group-item">
           <div class="d-flex">
-            <div class="col-10"><%= t.title %></div>
+            <div class="col-11"><%= t.title %></div>
 
             <form
-              class="col-2"
+              class="col-1"
               action="/todos/<%= t._id %>?_method=DELETE"
               method="POST"
             >
@@ -24,19 +24,15 @@
       </ul>
 
       <form action="/todos" method="POST">
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 mt-3">
           <input
-            class="form-control"
+            class="form-control ms-2"
             type="text"
             placeholder="Add Todo"
             name="title"
             required
           />
-          <span class="input-group-text"
-            ><button class="btn btn-sm btn-success" type="submit">
-              +
-            </button></span
-          >
+          <button class="btn btn-lg btn-success me-2" type="submit">+</button>
         </div>
       </form>
     </div>
