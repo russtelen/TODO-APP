@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
+const Todo = require("./models/todo.js");
 // ==============================================
 // CONFIG
 // init express
