@@ -2,7 +2,14 @@
 <body>
   <h1>Todos</h1>
 
-  <% todos.map(t => { %>
-  <li><%= t.title %></li>
-  <% }) %>
+  <ul>
+    <% todos.map(t => { %>
+    <li><%= t.title %></li>
+    <% }) %>
+  </ul>
+
+  <form action="/todos" method="POST">
+    <input type="text" placeholder="Enter Todo" name="title" required />
+    <button type="submit">Add Todo</button>
+  </form>
 </body>

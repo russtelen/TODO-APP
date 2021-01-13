@@ -47,15 +47,25 @@ mongoose
 // get
 // home page
 app.get("/", async (req, res) => {
-  res.send("Connected!");
+  res.redirect("/todos");
 });
 
 // get
 // all todos
 // index
 app.get("/todos", async (req, res) => {
+  const { title } = req.body;
   const todos = await Todo.find();
-  res.render("todos/index", { todos });
+  res.render("todos/index", { todos, title });
+});
+
+// post
+// todo
+app.post("/todos", async (req, res) => {
+  const { title } = req.body;
+  const todo = new Todo({ title: title });
+  await todo.save();
+  res.redirect("/todos");
 });
 
 // ==============================================
