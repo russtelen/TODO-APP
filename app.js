@@ -56,7 +56,14 @@ app.get("/", async (req, res) => {
 app.get("/todos", async (req, res) => {
   const { title } = req.body;
   const todos = await Todo.find();
-  res.render("todos/index", { todos, title });
+  var today = new Date();
+  var prefs = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
+  var dayToday = today.toLocaleString("en-US", prefs);
+  res.render("todos/index", { todos, title, dayToday });
 });
 
 // post
